@@ -1,28 +1,44 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var characterSet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
 var number = "0123456789";
 var special = "!#$%&()*+<_>?:;<=>?@[]|^_'{\}~";
+var choiceChar = [];
+
 
 function generatePassword() {
   var password = "";
-  var length = 8;
-  var upperCase = confirm("Would you like uppercase characters included?");
-  var lowerCase = confirm("Would you like lowercase characters included?");
-  var specialChar = confirm("Would you like special characters included?");
-  var numbers = confirm("Would you like numbers included?");
+  var length = 15;
+  var hasUpperCase = confirm("Would you like uppercase characters included?");
+  var hasLowerCase = confirm("Would you like lowercase characters included?");
+  var hasSpecial = confirm("Would you like special characters included?");
+  var hasNumbers = confirm("Would you like numbers included?");
 
-  if (upperCase) {
-    var random = Math.floor(Math.random() * lowerCase.length);
-    var character = characterSet[random];
+  if (hasUpperCase) {
+    var random = Math.floor(Math.random() * upperCase.length);
+    var character = upperCase[random];
     choiceChar.push(character);
-    output = output.concat(lowerCase);
+    console.log(character);
+  }
+
+  if (hasNumbers) {
+    var random = Math.floor(Math.random() * number.length);
+    var character = number[random];
+    choiceChar.push(character);
+    
   }
 
   for (var i = 0; i < length; i++) {
-    var random = Math.floor(Math.random() * output.length);
-    password += output[random];
+    var random = Math.floor(Math.random() * upperCase.length);
+    password += upperCase[random];
   }
+
+  for (var i = 0; i < length; i++) {
+    var random = Math.floor(Math.random() * number.length);
+    password += number[random];
+  }
+
 
   return password;
 
