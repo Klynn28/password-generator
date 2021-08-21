@@ -9,4 +9,6 @@ This project is creating a password generator on a webpage. The user can choose 
 
 # Screenshots
 
-![password-generator](./Screen Shot 2021-08-21 at 12.22.35 AM.png)
+![password-generator](Screen Shot 2021-08-21 at 12.22.35 AM.png)   
+
+I am unclear as to why my screenshots are not working.
