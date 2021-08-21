@@ -9,7 +9,12 @@ var choiceChar = [];
 
 function generatePassword() {
   var password = "";
-  var length = 15;
+
+  var length = prompt("Choose a password length between 8 and 128 characters.");
+  while (length > 128 || length < 8) {
+    
+  }
+
   var hasUpperCase = confirm("Would you like uppercase characters included?");
   var hasLowerCase = confirm("Would you like lowercase characters included?");
   var hasSpecial = confirm("Would you like special characters included?");
@@ -19,7 +24,18 @@ function generatePassword() {
     var random = Math.floor(Math.random() * upperCase.length);
     var character = upperCase[random];
     choiceChar.push(character);
-    console.log(character);
+  }
+
+  if (hasLowerCase) {
+    var random = Math.floor(Math.random() * lowerCase.length);
+    var character = lowerCase[random];
+    choiceChar.push(character);
+  }
+
+  if (hasSpecial) {
+    var random = Math.floor(Math.random() * special.length);
+    var character = special[random];
+    choiceChar.push(character);
   }
 
   if (hasNumbers) {
@@ -35,14 +51,23 @@ function generatePassword() {
   }
 
   for (var i = 0; i < length; i++) {
+    var random = Math.floor(Math.random() * lowerCase.length);
+    password += lowerCase[random];
+  }
+
+  for (var i = 0; i < length; i++) {
+    var random = Math.floor(Math.random() * special.length);
+    password += special[random];
+  }
+
+  for (var i = 0; i < length; i++) {
     var random = Math.floor(Math.random() * number.length);
     password += number[random];
   }
 
-
   return password;
-
 }
+
 
 // Write password to the #password input
 function writePassword() {
