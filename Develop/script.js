@@ -13,8 +13,18 @@ function generatePassword() {
   var numbers = confirm("Would you like numbers included?");
 
   if (upperCase) {
-    var random = Math
+    var random = Math.floor(Math.random() * lowerCase.length);
+    var character = characterSet[random];
+    choiceChar.push(character);
+    output = output.concat(lowerCase);
   }
+
+  for (var i = 0; i < length; i++) {
+    var random = Math.floor(Math.random() * output.length);
+    password += output[random];
+  }
+
+  return password;
 
 }
 
